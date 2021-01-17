@@ -1,23 +1,18 @@
+import {useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
+import Header from './Layout/Header';
+import Navbar from './Layout/Navbar'
+import Home from './Components/Home'
 
 function App() {
+  useEffect(()=>{
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{padding:"0",margin:"0",boxSizing:"border-box",overflow:"hidden"}}>
+        <Navbar/>
+        <Header/>
+        <Home/>
     </div>
   );
 }

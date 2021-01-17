@@ -1,0 +1,24 @@
+.anim{
+    animation-name: myAnim;
+    animation-duration: 0.9s;
+}
+
+@keyframes myAnim{
+    0%{
+        -webkit-transform: translateX(0px);
+    }
+    100%{
+        -webkit-transform: translateX(-312px);
+    }
+}
+@media  only screen and (max-width:800px){
+    #cm{
+        display: none !important;
+    }
+    #mob{
+        display: flex !important;
+    }
+    #imgMob{
+        margin-top: 30px !important;
+    }
+}

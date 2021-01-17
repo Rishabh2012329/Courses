@@ -1,0 +1,37 @@
+#chevDown{
+   display:none 
+}
+#chevUp{
+    display:none 
+ }
+@media only screen and (max-width: 800px) {
+    #chevDown{
+        display:block 
+     }
+     #chevUp{
+         display:block 
+      }
+    #h2{
+        display:none
+    }
+    #h1{
+        width: 100% !important;
+    }
+    #navb{
+        display:none !important
+    }
+    .chevDown{
+        animation-name: spn;
+        animation-duration: 0.7s;
+
+    }
+    .chevUp{
+        animation-name: spn;
+        animation-duration: 0.7s;
+
+    }
+  
+  }
+  @keyframes spn {
+    100%{transform: rotate(180deg);}
+}

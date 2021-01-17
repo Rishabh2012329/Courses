@@ -1,0 +1,91 @@
+import React,{useEffect,useState} from 'react'
+import Heading from './Heading'
+import './home.css'
+import Course from './Course'
+import RoundButton from './RoundButton'
+
+const arrImg=['https://www.gettingsmart.com/wp-content/uploads/2017/01/Teacher-Helping-Young-Students-at-Table-Feature-Image.jpg','https://s35691.pcdn.co/wp-content/uploads/2017/09/iStock-507009337-171002.png','https://cdn.shopify.com/s/files/1/0790/5955/articles/Making_it_Easier_for_Students_With_Learning_Disabilities_2048x.progressive.jpg?v=1505399712','https://edkt.net/294edtech/6-strategies-for-maximised-learning-1568915627742.jpg','https://wp-media.petersons.com/blog/wp-content/uploads/2019/06/13104106/iStock-914314318.jpg']
+let imgIndex=[0,1,2,3,4,0,1]
+let start=5
+let run=7
+export default function Home() {
+
+    useEffect(()=>{
+        if(window.innerWidth<800){
+            run=7;
+            start=5;
+            
+          }
+          else{
+              run=5;
+              start=0
+          }
+          
+        const id=setInterval(()=>{
+            const elem=document.querySelectorAll('#courseImg')
+            
+            for(let i=start;i<run;i++){ 
+                console.log(i)       
+                elem[i].classList.add('anim')
+                let flag=false;
+                console.log(i)
+                elem[i].addEventListener('animationend',()=>{
+                    if(flag==false){
+                        imgIndex[i]=(imgIndex[i]+1)%5
+                        flag=true;
+                    }
+                    elem[i].classList.remove('anim')
+                    elem[i].style.background=`url(${arrImg[imgIndex[i]]}) center no-repeat`
+                    elem[i].style.backgroundSize="cover"
+
+                })
+                
+            }
+           
+           
+        },5000)
+        return()=>{ clearInterval(id)};
+    },[])
+    
+    return (
+        <div style={{width:"100%",marginTop:"4vw"}}>
+            <Heading text="Course Cateogaries" />
+            <div id="cm"  style={{width:"90%",margin:"auto",marginBottom:"70px",marginTop:"70px",justifyContent:"space-between",display:"flex",flexDirection:"row",overflow:"hidden",position:"relative"}}>              
+                <div id="courseImg" style={{width:"280px",height:"280px",background:`url(${arrImg[imgIndex[0]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+                <div id="courseImg" style={{width:"280px",height:"280px",background:`url(${arrImg[imgIndex[1]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+                <div id="courseImg" style={{width:"280px",height:"280px",background:`url(${arrImg[imgIndex[2]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+                <div id="courseImg" style={{width:"280px",height:"280px",background:`url(${arrImg[imgIndex[3]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+                <div id="courseImg" style={{right:"-312px",position:"absolute",width:"280px",height:"280px",background:`url(${arrImg[imgIndex[4]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+            </div>
+            <div id="mob" style={{display:"none",width:"280px",justifyContent:"space-between",margin:"auto",marginTop:"60px",marginBottom:"60px",flexDirection:"row",overflow:"hidden",position:"relative"}}>
+                <div id="courseImg" style={{width:"280px",height:"280px",background:`url(${arrImg[imgIndex[0]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+                <div id="courseImg" style={{right:"-312px",position:"absolute",width:"280px",height:"280px",background:`url(${arrImg[imgIndex[1]]}) center no-repeat`,backgroundSize:"cover"}}></div>
+            </div>
+            
+            <div style={{width:"100%",backgroundColor:"#f1f1f1",padding:"5vw",paddingTop:"5.5vw",display:"flex",flexDirection:"row",justifyContent:"space-between",flexWrap:"wrap"}}>
+                <div style={{display:"flex",flexDirection:"column",width:"400px"}}>
+                    <h1 style={{fontWeight:"800",marginBottom:"30px"}}>About us</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.<br/> <br/>
+
+Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.<br/><br/> 
+
+Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.<br/><br/></p>
+<RoundButton width="130px" height="50px" text="Read More" border="solid purple 1px" color="black"/>
+                </div>
+                <div id="imgMob" style={{width:"400px",height:"400px",background:"url(https://cdn.searchenginejournal.com/wp-content/uploads/2019/01/Top-10-Ranking-About-Us-Pages.png) center no-repeat",backgroundSize:"cover"}}>
+
+                </div>
+            </div>
+            
+            <div style={{width:"100%",paddingTop:"30px"}}>
+                <Heading text="Courses"  />
+                
+                <div style={{width:"87%",margin:"auto",display:"flex",flexWrap:"wrap",justifyContent:"space-around",marginTop:"60px"}}>
+                    <Course/>
+                    <Course/>
+                    <Course/>
+                </div>
+            </div>
+        </div>
+    )
+}
