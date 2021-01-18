@@ -3,6 +3,8 @@ import Heading from './Heading'
 import './home.css'
 import Course from './Course'
 import RoundButton from './RoundButton'
+import {Link} from 'react-router-dom'
+import Header from '../Layout/Header'
 
 const arrImg=['https://www.gettingsmart.com/wp-content/uploads/2017/01/Teacher-Helping-Young-Students-at-Table-Feature-Image.jpg','https://s35691.pcdn.co/wp-content/uploads/2017/09/iStock-507009337-171002.png','https://cdn.shopify.com/s/files/1/0790/5955/articles/Making_it_Easier_for_Students_With_Learning_Disabilities_2048x.progressive.jpg?v=1505399712','https://edkt.net/294edtech/6-strategies-for-maximised-learning-1568915627742.jpg','https://wp-media.petersons.com/blog/wp-content/uploads/2019/06/13104106/iStock-914314318.jpg']
 let imgIndex=[0,1,2,3,4,0,1]
@@ -25,10 +27,10 @@ export default function Home() {
             const elem=document.querySelectorAll('#courseImg')
             
             for(let i=start;i<run;i++){ 
-                console.log(i)       
+            //    console.log(i)       
                 elem[i].classList.add('anim')
                 let flag=false;
-                console.log(i)
+               // console.log(i)
                 elem[i].addEventListener('animationend',()=>{
                     if(flag==false){
                         imgIndex[i]=(imgIndex[i]+1)%5
@@ -48,6 +50,7 @@ export default function Home() {
     },[])
     
     return (
+        <div>   <Header/>
         <div style={{width:"100%",marginTop:"4vw"}}>
             <Heading text="Course Cateogaries" />
             <div id="cm"  style={{width:"90%",margin:"auto",marginBottom:"70px",marginTop:"70px",justifyContent:"space-between",display:"flex",flexDirection:"row",overflow:"hidden",position:"relative"}}>              
@@ -70,7 +73,7 @@ export default function Home() {
 Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.<br/><br/> 
 
 Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.<br/><br/></p>
-<RoundButton width="130px" height="50px" text="Read More" border="solid purple 1px" color="black"/>
+<RoundButton width="130px" height="50px" text="Read More" border="solid purple 1px" color="black" id="rbrm"/>
                 </div>
                 <div id="imgMob" style={{width:"400px",height:"400px",background:"url(https://cdn.searchenginejournal.com/wp-content/uploads/2019/01/Top-10-Ranking-About-Us-Pages.png) center no-repeat",backgroundSize:"cover"}}>
 
@@ -81,11 +84,12 @@ Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit ame
                 <Heading text="Courses"  />
                 
                 <div style={{width:"87%",margin:"auto",display:"flex",flexWrap:"wrap",justifyContent:"space-around",marginTop:"60px"}}>
-                    <Course/>
+                   <Link to="/Courses/CourseDetailes/JavaScript" style={{textDecoration:"none",textDecorationColor:"none",color:"black"}}> <Course/></Link>
                     <Course/>
                     <Course/>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
