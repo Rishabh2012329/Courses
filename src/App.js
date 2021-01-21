@@ -4,7 +4,6 @@ import './App.css';
 import Header from './Layout/Header';
 import Navbar from './Layout/Navbar'
 import Home from './Components/Home'
-
 import CourseDetailes from './Components/CourseDetailes'
 import { BrowserRouter as Router,Switch,  Route, } from 'react-router-dom'
 
@@ -13,7 +12,7 @@ function App() {
   })
   return (
     <Router>
-      <div style={{padding:"0",margin:"0",boxSizing:"border-box"}}>
+      
           <Navbar/>
        
           <Switch>
@@ -24,7 +23,7 @@ function App() {
               <CourseDetailes/>
             </Route>       
           </Switch>
-      </div>
+     
     </Router>
   );
 }

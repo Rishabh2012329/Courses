@@ -12,7 +12,7 @@ export default function Navbar() {
     const [show,setshow]=useState(true)
     return (
         <div>
-        <div id="navMain" style={{display:'flex',flexDirection:"row",top:'0',right:"0",left:"0",width:"100%",height:"60px",padding:"5px",paddingLeft:"15px",justifyContent:'space-between',backgroundColor:"white",alignItems:"center"}}>
+        <div id="navMain" style={{display:'flex',flexDirection:"row",top:'0',right:"0",left:"0",width:"100%",height:"60px",padding:"5px",paddingLeft:"15px",justifyContent:'space-between',backgroundColor:"white",alignItems:"center",boxShadow:"0px 5px 15px rgba(0,0,0,0.3)"}}>
             <img src="https://reptro.xoothemes.com/wp-content/uploads/2018/05/cropped-logo-3.png" style={{width:"120px",marginLeft:"20px"}}/>  
             <div id="navb" style={{display:"flex",width:"390px",justifyContent:"space-between",marginRight:"35px",alignItems:"center"}}>
                 <NavItem text="Home" select={Select['Home']} set={setSelect}/>

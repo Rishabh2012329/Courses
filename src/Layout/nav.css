@@ -30,7 +30,13 @@
         animation-duration: 0.7s;
 
     }
-  
+    #para{
+        width: 100% !important;
+        margin-bottom: 40px;
+    }
+    #cdh{
+        font-size:25px;
+    }
   }
   @keyframes spn {
     100%{transform: rotate(180deg);}
