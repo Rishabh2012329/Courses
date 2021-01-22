@@ -3,6 +3,7 @@ import NavItem from './NavItem'
 import RoundButton from '../Components/RoundButton'
 import {FaChevronDown,FaChevronUp} from 'react-icons/fa'
 import './nav.css'
+import Login from '../Components/Login'
 
 export default function Navbar() {
     const [Select,setSelect]=useState({
@@ -10,6 +11,7 @@ export default function Navbar() {
     })
     const [chevClick,setClick]=useState(true)
     const [show,setshow]=useState(true)
+    const [log,setlog]=useState(false)
     return (
         <div>
         <div id="navMain" style={{display:'flex',flexDirection:"row",top:'0',right:"0",left:"0",width:"100%",height:"60px",padding:"5px",paddingLeft:"15px",justifyContent:'space-between',backgroundColor:"white",alignItems:"center",boxShadow:"0px 5px 15px rgba(0,0,0,0.3)"}}>
@@ -18,7 +20,7 @@ export default function Navbar() {
                 <NavItem text="Home" select={Select['Home']} set={setSelect}/>
                 <NavItem text="Courses" select={Select['Courses']} set={setSelect}/>
                 <NavItem text="Contact" select={Select['Contact']} set={setSelect}/>
-                <RoundButton text="Login" width="80px" height="35px" padding="5px" backgroundColor="purple" fontSize="15px" fontWeight="700" fontFamily="sans-serif" />
+                <RoundButton func={()=>setlog(true)} text="Login" width="80px" height="35px" padding="5px" backgroundColor="purple" fontSize="15px" fontWeight="700" fontFamily="sans-serif" />
             </div> 
             
             {chevClick?<FaChevronDown id="chevDown" onClick={(e)=>{
@@ -65,8 +67,9 @@ export default function Navbar() {
         {!show?<div style={{width:"100%",display:"flex",flexDirection:"column"}}>
                 <div style={{width:"100%",padding:"15px",height:"40px",borderTop:"solid rgba(0,0,0,0.25) 1px",display:"flex",flexDirection:"row",alignItems:"center"}}>Home</div>
                 <div style={{width:"100%",padding:"15px",height:"40px",borderTop:"solid rgba(0,0,0,0.25) 1px",borderBottom:"solid rgba(0,0,0,0.25) 1px",display:"flex",flexDirection:"row",alignItems:"center"}}>Courses</div>   
-                <RoundButton text="Login" width="80px" height="35px" padding="5px" backgroundColor="purple" fontSize="15px" fontWeight="700" fontFamily="sans-serif" margin="10px" />
+                <RoundButton func={()=>setlog(true)} text="Login" width="80px" height="35px" padding="5px" backgroundColor="purple" fontSize="15px" fontWeight="700" fontFamily="sans-serif" margin="10px" />
             </div>:null}
+            {log?<Login set={setlog} />:null}
         </div>
     )
 }

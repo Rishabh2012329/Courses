@@ -4,6 +4,8 @@ import {FaStar,FaClock} from 'react-icons/fa'
 import {Tab,Tabs,TabContainer} from 'react-bootstrap'
 import Overview from './Overview'
 import RoundButton from './RoundButton'
+import Instructor from './Instructor'
+import Reviews from './Reviews'
 
 export default function CourseDetailes(props) {
     const {name} = useParams()
@@ -77,12 +79,12 @@ export default function CourseDetailes(props) {
                     Cirruculum
                 </div>
                 <div onClick={()=>{
-                    clickShow('I',<Overview/>)
+                    clickShow('I',<Instructor/>)
                 }} style={{width:"auto",height:"50px",display:"flex",justifyContent:"center",alignItems:"center",borderBottom:selected['I']||"",fontWeight:"700",padding:"5px",marginLeft:"10px"}}>
                     Instructor
                 </div>
                 <div onClick={()=>{
-                    clickShow('R',<Overview/>)
+                    clickShow('R',<Reviews/>)
                 }} style={{width:"auto",height:"50px",display:"flex",justifyContent:"center",alignItems:"center",borderBottom:selected['R']||"",fontWeight:"700",padding:"5px",marginLeft:"10px"}}>
                     Reviews
                 </div>
